@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Install Rustket on macOS or Linux with the release installer, Homebrew, or Cargo."
+    />
+    <title>Install — Rustket</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="top-rule"></div>
+    <header class="nav-shell">
+      <nav class="nav container" aria-label="Main navigation">
+        <a class="brand" href="index.html" aria-label="Rustket home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40">
+              <path d="M20 3.5 34 11.5v17L20 36.5 6 28.5v-17L20 3.5Z" />
+              <path d="m20 12 7.5 4.3v8.6L20 29.2l-7.5-4.3v-8.6L20 12Z" />
+              <circle cx="20" cy="20" r="3" />
+            </svg>
+          </span>
+          <span>rustket</span>
+        </a>
+        <div class="nav-links">
+          <a href="features.html">Features</a>
+          <a href="install.html" aria-current="page">Install</a>
+          <a href="commands.html">Commands</a>
+        </div>
+        <a class="github-button" href="https://github.com/Rustket/rustket" target="_blank" rel="noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2C6.48 2 2 6.58 2 12.23c0 4.52 2.87 8.35 6.84 9.71.5.1.68-.22.68-.49 0-.24-.01-1.05-.01-1.91-2.78.62-3.37-1.21-3.37-1.21-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.57 2.34 1.12 2.91.85.09-.66.35-1.12.63-1.38-2.22-.26-4.55-1.14-4.55-5.08 0-1.12.39-2.04 1.03-2.76-.1-.26-.45-1.31.1-2.72 0 0 .84-.28 2.75 1.05A9.3 9.3 0 0 1 12 6.99c.85 0 1.68.12 2.48.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.46.1 2.72.64.72 1.03 1.64 1.03 2.76 0 3.95-2.34 4.81-4.57 5.07.36.32.68.94.68 1.9 0 1.38-.01 2.49-.01 2.83 0 .27.18.59.69.49A10.2 10.2 0 0 0 22 12.23C22 6.58 17.52 2 12 2Z" />
+          </svg>
+          <span>GitHub</span>
+        </a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="detail-hero install-hero">
+        <div class="container">
+          <p class="breadcrumb"><a href="index.html">Home</a><span>/</span> Install</p>
+          <p class="section-kicker">Three ways to get started</p>
+          <h1>Choose your path<br /><em>to Rustket.</em></h1>
+          <p class="detail-lede">
+            Use the verified release installer, install through Homebrew, or
+            build from source with Cargo. All methods work on supported macOS
+            and Linux systems.
+          </p>
+          <div class="install-jump-links">
+            <a href="#release">Release installer <span>↓</span></a>
+            <a href="#homebrew">Homebrew <span>↓</span></a>
+            <a href="#cargo">Cargo <span>↓</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="install-guide">
+        <div class="container guide-layout">
+          <aside class="guide-aside">
+            <p class="section-kicker">Before you begin</p>
+            <h2>Supported platforms</h2>
+            <ul class="platform-list">
+              <li><span>macOS</span><code>ARM64 · x86_64</code></li>
+              <li><span>Linux</span><code>ARM64 · x86_64</code></li>
+            </ul>
+            <p>
+              The release installer also requires <code>curl</code>,
+              <code>tar</code>, <code>awk</code>, <code>git</code>, and either
+              <code>shasum</code> or <code>sha256sum</code>.
+            </p>
+          </aside>
+
+          <div class="guide-main">
+            <article class="install-method" id="release">
+              <div class="method-heading">
+                <span class="method-number">01</span>
+                <div>
+                  <p class="section-kicker">Recommended</p>
+                  <h2>Install a prebuilt release</h2>
+                </div>
+              </div>
+              <p>
+                The script detects your operating system and CPU architecture,
+                downloads the matching Rustket 0.1.0 archive and its checksum
+                list, and verifies the archive before installation. It installs
+                the CLI to <code>~/.rustket/bin</code>, clones the official
+                <code>Rustket/rustket-bits</code> tap if it is not already
+                present, and adds the bin directory to Bash, Zsh, or Fish
+                configuration when recognized.
+              </p>
+              <div class="guide-code">
+                <code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Rustket/rustket/main/install.sh)" && export PATH="$HOME/.rustket/bin:$PATH"</code>
+                <button class="copy-button" type="button" data-copy='/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Rustket/rustket/main/install.sh)" &amp;&amp; export PATH="$HOME/.rustket/bin:$PATH"' aria-label="Copy release install command">
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="6" y="6" width="9" height="9" rx="1" /><path d="M13 6V4H4v9h2" /></svg>
+                </button>
+              </div>
+              <p class="copy-status" aria-live="polite"></p>
+              <ol class="steps-list">
+                <li><span>1</span><div><strong>Paste the command into Bash or Zsh.</strong><p>The trailing <code>export</code> makes Rustket available in the current shell too.</p></div></li>
+                <li><span>2</span><div><strong>Open a new Fish shell.</strong><p>The installer adds the Fish path setting; start a new shell to load it.</p></div></li>
+                <li><span>3</span><div><strong>Install a package.</strong><p>The official tap is preconfigured, so you can run <code>rustket install ripgrep</code>.</p></div></li>
+              </ol>
+              <div class="warning-callout">
+                <strong>macOS note for version 0.1.0</strong>
+                <p>The prebuilt macOS binaries are not code-signed or notarized. If Gatekeeper reports that Rustket could not be verified, use the Cargo source installation below rather than bypassing the warning. SHA-256 checks integrity but does not replace Apple's signing and notarization.</p>
+              </div>
+            </article>
+
+            <article class="install-method" id="homebrew">
+              <div class="method-heading">
+                <span class="method-number">02</span>
+                <div>
+                  <p class="section-kicker">Homebrew</p>
+                  <h2>Install with brew</h2>
+                </div>
+              </div>
+              <p>
+                Install the Rustket CLI from its Homebrew tap, then add the
+                official package bits tap so Rustket can find packages such as
+                ripgrep.
+              </p>
+              <div class="guide-code">
+                <code>brew install Rustket/rustket/rustket</code>
+                <button class="copy-button" type="button" data-copy="brew install Rustket/rustket/rustket" aria-label="Copy Homebrew command">
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="6" y="6" width="9" height="9" rx="1" /><path d="M13 6V4H4v9h2" /></svg>
+                </button>
+              </div>
+              <div class="guide-code second-command">
+                <code>rustket tap add Rustket/rustket-bits</code>
+                <button class="copy-button" type="button" data-copy="rustket tap add Rustket/rustket-bits" aria-label="Copy official tap command">
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="6" y="6" width="9" height="9" rx="1" /><path d="M13 6V4H4v9h2" /></svg>
+                </button>
+              </div>
+              <p class="copy-status" aria-live="polite"></p>
+            </article>
+
+            <article class="install-method" id="cargo">
+              <div class="method-heading">
+                <span class="method-number">03</span>
+                <div>
+                  <p class="section-kicker">Build locally</p>
+                  <h2>Install from source</h2>
+                </div>
+              </div>
+              <p>
+                If you already have Rust and Cargo installed, Cargo can build
+                Rustket directly from the GitHub repository. Then add the
+                official bits tap.
+              </p>
+              <div class="guide-code">
+                <code>cargo install --git https://github.com/Rustket/rustket.git</code>
+                <button class="copy-button" type="button" data-copy="cargo install --git https://github.com/Rustket/rustket.git" aria-label="Copy Cargo install command">
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="6" y="6" width="9" height="9" rx="1" /><path d="M13 6V4H4v9h2" /></svg>
+                </button>
+              </div>
+              <div class="guide-code second-command">
+                <code>rustket tap add Rustket/rustket-bits</code>
+                <button class="copy-button" type="button" data-copy="rustket tap add Rustket/rustket-bits" aria-label="Copy official tap command">
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="6" y="6" width="9" height="9" rx="1" /><path d="M13 6V4H4v9h2" /></svg>
+                </button>
+              </div>
+              <p class="source-path-note">
+                Cargo installs the Rustket CLI in <code>~/.cargo/bin</code>.
+                Rustket-managed application commands go in
+                <code>~/.rustket/bin</code>; add that directory to your
+                <code>PATH</code> if it is not already there:
+              </p>
+              <div class="guide-code">
+                <code>export PATH="$HOME/.rustket/bin:$PATH"</code>
+                <button class="copy-button" type="button" data-copy='export PATH="$HOME/.rustket/bin:$PATH"' aria-label="Copy PATH command">
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="6" y="6" width="9" height="9" rx="1" /><path d="M13 6V4H4v9h2" /></svg>
+                </button>
+              </div>
+              <p class="copy-status" aria-live="polite"></p>
+            </article>
+
+            <article class="install-method first-package">
+              <div class="method-heading">
+                <span class="method-number">04</span>
+                <div>
+                  <p class="section-kicker">Next up</p>
+                  <h2>Install your first bit</h2>
+                </div>
+              </div>
+              <p>
+                Rustket installs command-line executables, not macOS
+                <code>.app</code> bundles. The official tap is preconfigured
+                with the release installer; add it manually if you used another
+                install method.
+              </p>
+              <div class="example-commands">
+                <code>rustket install ripgrep</code>
+                <code>rustket list</code>
+                <code>rustket doctor</code>
+              </div>
+              <a class="text-button" href="features.html">
+                Learn how taps and package definitions work <span aria-hidden="true">→</span>
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <a class="brand footer-brand" href="index.html">
+          <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M20 3.5 34 11.5v17L20 36.5 6 28.5v-17L20 3.5Z" /><path d="m20 12 7.5 4.3v8.6L20 29.2l-7.5-4.3v-8.6L20 12Z" /><circle cx="20" cy="20" r="3" /></svg></span>
+          <span>rustket</span>
+        </a>
+        <p>Package management, distilled.</p>
+        <a href="features.html">Features</a>
+        <a href="commands.html">Commands</a>
+        <a href="https://github.com/Rustket/rustket" target="_blank" rel="noreferrer">GitHub ↗</a>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A practical reference to Rustket package, tap, and maintenance commands."
+    />
+    <title>Commands — Rustket</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="top-rule"></div>
+    <header class="nav-shell">
+      <nav class="nav container" aria-label="Main navigation">
+        <a class="brand" href="index.html" aria-label="Rustket home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40">
+              <path d="M20 3.5 34 11.5v17L20 36.5 6 28.5v-17L20 3.5Z" />
+              <path d="m20 12 7.5 4.3v8.6L20 29.2l-7.5-4.3v-8.6L20 12Z" />
+              <circle cx="20" cy="20" r="3" />
+            </svg>
+          </span>
+          <span>rustket</span>
+        </a>
+        <div class="nav-links">
+          <a href="features.html">Features</a>
+          <a href="install.html">Install</a>
+          <a href="commands.html" aria-current="page">Commands</a>
+        </div>
+        <a class="github-button" href="https://github.com/Rustket/rustket" target="_blank" rel="noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2C6.48 2 2 6.58 2 12.23c0 4.52 2.87 8.35 6.84 9.71.5.1.68-.22.68-.49 0-.24-.01-1.05-.01-1.91-2.78.62-3.37-1.21-3.37-1.21-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.57 2.34 1.12 2.91.85.09-.66.35-1.12.63-1.38-2.22-.26-4.55-1.14-4.55-5.08 0-1.12.39-2.04 1.03-2.76-.1-.26-.45-1.31.1-2.72 0 0 .84-.28 2.75 1.05A9.3 9.3 0 0 1 12 6.99c.85 0 1.68.12 2.48.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.46.1 2.72.64.72 1.03 1.64 1.03 2.76 0 3.95-2.34 4.81-4.57 5.07.36.32.68.94.68 1.9 0 1.38-.01 2.49-.01 2.83 0 .27.18.59.69.49A10.2 10.2 0 0 0 22 12.23C22 6.58 17.52 2 12 2Z" />
+          </svg>
+          <span>GitHub</span>
+        </a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="detail-hero command-hero">
+        <div class="container">
+          <p class="breadcrumb"><a href="index.html">Home</a><span>/</span> Commands</p>
+          <p class="section-kicker">The command reference</p>
+          <h1>Less ceremony.<br /><em>More command line.</em></h1>
+          <p class="detail-lede">
+            Find and inspect packages, manage your taps, and keep installed
+            tools up to date with a small set of explicit commands.
+          </p>
+          <a class="primary-button" href="#package-commands">
+            Explore commands
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6M13 10H3" /></svg>
+          </a>
+        </div>
+      </section>
+
+      <section class="command-quickstart">
+        <div class="container quickstart-grid">
+          <div>
+            <p class="section-kicker">A common flow</p>
+            <h2>Find it. Check it.<br />Install it.</h2>
+          </div>
+          <div class="quickstart-steps">
+            <div><span>01</span><code>rustket search rip</code><p>Find matching bits in your taps.</p></div>
+            <div><span>02</span><code>rustket info ripgrep</code><p>Check version and platform builds.</p></div>
+            <div><span>03</span><code>rustket install ripgrep</code><p>Install the current platform's build.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="command-reference" id="package-commands">
+        <div class="container">
+          <div class="reference-header">
+            <p class="section-kicker">Command reference</p>
+            <h2>Package commands</h2>
+            <p>Use a bit's name as it appears in the tap definition.</p>
+          </div>
+          <div class="reference-list">
+            <article class="reference-row">
+              <div class="command-syntax"><code>rustket install &lt;bit&gt;</code><span>Install a package</span></div>
+              <div class="command-explanation">
+                <p>Downloads the current platform's archive, verifies its SHA-256 digest, unpacks it into the cellar, and links its executable into <code>~/.rustket/bin</code>.</p>
+                <div class="syntax-note"><code>rustket install ripgrep</code><span>Installs the ripgrep bit.</span></div>
+              </div>
+            </article>
+            <article class="reference-row">
+              <div class="command-syntax"><code>rustket install &lt;bit&gt; --skip-verify</code><span>Skip checksum verification</span></div>
+              <div class="command-explanation">
+                <p>Skips the SHA-256 check. This option is intended for development only; normal installs verify by default.</p>
+              </div>
+            </article>
+            <article class="reference-row">
+              <div class="command-syntax"><code>rustket uninstall &lt;bit&gt;</code><span>Remove a package</span></div>
+              <div class="command-explanation">
+                <p>Removes the package's command link and its stored files under <code>~/.rustket/cellar</code>.</p>
+              </div>
+            </article>
+            <article class="reference-row">
+              <div class="command-syntax"><code>rustket list</code><span>List installed commands</span></div>
+              <div class="command-explanation">
+                <p>Prints the names currently present in Rustket's <code>~/.rustket/bin</code> directory.</p>
+              </div>
+            </article>
+            <article class="reference-row">
+              <div class="command-syntax"><code>rustket search &lt;query&gt;</code><span>Search available bits</span></div>
+              <div class="command-explanation">
+                <p>Matches the query, without case sensitivity, against bit names found in configured taps.</p>
+              </div>
+            </article>
+            <article class="reference-row">
+              <div class="command-syntax"><code>rustket info &lt;bit&gt;</code><span>Inspect a bit</span></div>
+              <div class="command-explanation">
+                <p>Displays the bit's name, version, and platform keys defined in its TOML manifest.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="tap-reference" id="tap-commands">
+        <div class="container">
+          <div class="reference-header">
+            <p class="section-kicker">Package sources</p>
+            <h2>Tap commands</h2>
+            <p>Taps are GitHub repositories with package definitions in a <code>bits/</code> directory.</p>
+          </div>
+          <div class="tap-command-grid">
+            <article>
+              <code>rustket tap add &lt;owner/repo&gt;</code>
+              <p>Clone a GitHub tap. You can also pass its GitHub HTTPS URL.</p>
+              <span class="tap-example">rustket tap add Rustket/rustket-bits</span>
+            </article>
+            <article>
+              <code>rustket tap list</code>
+              <p>Show the configured taps by owner and repository.</p>
+            </article>
+            <article>
+              <code>rustket tap remove &lt;owner/repo&gt;</code>
+              <p>Remove the selected tap from the local taps directory.</p>
+            </article>
+            <article>
+              <code>rustket tap update</code>
+              <p>Pull fast-forward updates for each configured tap.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="maintenance-reference" id="maintenance-commands">
+        <div class="container maintenance-grid">
+          <div>
+            <p class="section-kicker">Upkeep</p>
+            <h2>Maintenance<br />commands</h2>
+            <p>Check your setup or refresh Rustket and the packages it manages.</p>
+          </div>
+          <div class="maintenance-list">
+            <article>
+              <code>rustket doctor</code>
+              <div><strong>Check your setup</strong><p>Reports platform, Rustket directories, PATH, Git, and broken command links. Returns an error if checks fail.</p></div>
+            </article>
+            <article>
+              <code>rustket update</code>
+              <div><strong>Update Rustket</strong><p>Refreshes configured taps, then reinstalls the <code>rustket</code> bit itself.</p></div>
+            </article>
+            <article>
+              <code>rustket upgrade</code>
+              <div><strong>Upgrade installed bits</strong><p>Refreshes taps, then reinstalls each listed bit. It attempts remaining upgrades after a failure and reports an error if any failed.</p></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="detail-cta">
+        <div class="container detail-cta-inner">
+          <div>
+            <p class="section-kicker">Ready to try it?</p>
+            <h2>Install Rustket and make the commands yours.</h2>
+          </div>
+          <a class="primary-button" href="install.html">
+            View installation guide
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6M13 10H3" /></svg>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <a class="brand footer-brand" href="index.html">
+          <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M20 3.5 34 11.5v17L20 36.5 6 28.5v-17L20 3.5Z" /><path d="m20 12 7.5 4.3v8.6L20 29.2l-7.5-4.3v-8.6L20 12Z" /><circle cx="20" cy="20" r="3" /></svg></span>
+          <span>rustket</span>
+        </a>
+        <p>Package management, distilled.</p>
+        <a href="features.html">Features</a>
+        <a href="install.html">Install</a>
+        <a href="https://github.com/Rustket/rustket" target="_blank" rel="noreferrer">GitHub ↗</a>
+      </div>
+    </footer>
+  </body>
+</html>

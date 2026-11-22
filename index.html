@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Rustket is a tiny, fast package manager for macOS and Linux."
+    />
+    <title>Rustket — Package management, distilled</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="top-rule"></div>
+
+    <header class="nav-shell">
+      <nav class="nav container" aria-label="Main navigation">
+        <a class="brand" href="#" aria-label="Rustket home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40" role="img">
+              <path d="M20 3.5 34 11.5v17L20 36.5 6 28.5v-17L20 3.5Z" />
+              <path d="m20 12 7.5 4.3v8.6L20 29.2l-7.5-4.3v-8.6L20 12Z" />
+              <circle cx="20" cy="20" r="3" />
+            </svg>
+          </span>
+          <span>rustket</span>
+        </a>
+
+        <div class="nav-links">
+          <a href="features.html">Features</a>
+          <a href="install.html">Install</a>
+          <a href="commands.html">Commands</a>
+        </div>
+
+        <a
+          class="github-button"
+          href="https://github.com/Rustket/rustket"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M12 2C6.48 2 2 6.58 2 12.23c0 4.52 2.87 8.35 6.84 9.71.5.1.68-.22.68-.49 0-.24-.01-1.05-.01-1.91-2.78.62-3.37-1.21-3.37-1.21-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.57 2.34 1.12 2.91.85.09-.66.35-1.12.63-1.38-2.22-.26-4.55-1.14-4.55-5.08 0-1.12.39-2.04 1.03-2.76-.1-.26-.45-1.31.1-2.72 0 0 .84-.28 2.75 1.05A9.3 9.3 0 0 1 12 6.99c.85 0 1.68.12 2.48.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.46.1 2.72.64.72 1.03 1.64 1.03 2.76 0 3.95-2.34 4.81-4.57 5.07.36.32.68.94.68 1.9 0 1.38-.01 2.49-.01 2.83 0 .27.18.59.69.49A10.2 10.2 0 0 0 22 12.23C22 6.58 17.52 2 12 2Z"
+            />
+          </svg>
+          <span>GitHub</span>
+        </a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-grid container">
+          <div class="hero-copy">
+            <div class="eyebrow">
+              <span class="status-dot"></span>
+              Version 0.1.0 is out
+            </div>
+            <h1>Package management,<br /><em>distilled.</em></h1>
+            <p class="hero-lede">
+              A tiny, fast package manager for macOS and Linux.
+              Install prebuilt tools directly from GitHub—with integrity checked
+              every time.
+            </p>
+            <div class="hero-actions">
+              <a class="primary-button" href="install.html">
+                Get Rustket
+                <svg viewBox="0 0 20 20" aria-hidden="true">
+                  <path d="m7 4 6 6-6 6M13 10H3" />
+                </svg>
+              </a>
+              <a
+                class="text-button"
+                href="https://github.com/Rustket/rustket"
+                target="_blank"
+                rel="noreferrer"
+              >
+                View source
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="terminal-wrap" aria-label="Rustket terminal example">
+            <div class="orb orb-one"></div>
+            <div class="orb orb-two"></div>
+            <div class="terminal">
+              <div class="terminal-bar">
+                <div class="window-dots" aria-hidden="true">
+                  <span></span><span></span><span></span>
+                </div>
+                <span>terminal — rustket</span>
+                <span class="terminal-shell">zsh</span>
+              </div>
+              <div class="terminal-body">
+                <div class="terminal-line"><span class="prompt">$</span> rustket install ripgrep</div>
+                <div class="terminal-line muted">Fetching bit manifest...</div>
+                <div class="terminal-line success">✓ Verified SHA-256 checksum</div>
+                <div class="terminal-line success">✓ Installed <strong>ripgrep</strong> 14.1.1</div>
+                <div class="terminal-line command-space"><span class="prompt">$</span> rg "package manager" ~/notes</div>
+                <div class="terminal-result">notes/rust.md:7:fast package manager</div>
+                <div class="terminal-cursor"><span class="prompt">$</span><span class="cursor"></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="proof-strip" aria-label="Rustket highlights">
+        <div class="proof container">
+          <div><strong>macOS</strong><span>Apple Silicon + Intel</span></div>
+          <div><strong>Linux</strong><span>ARM64 + x86_64</span></div>
+          <div><strong>SHA-256</strong><span>Verified downloads</span></div>
+          <div><strong>GitHub</strong><span>First-class taps</span></div>
+        </div>
+      </section>
+
+      <section class="features" id="features">
+        <div class="container">
+          <div class="section-heading">
+            <p class="section-kicker">Why Rustket</p>
+            <h2>Everything you need.<br />Nothing you don't.</h2>
+          </div>
+
+          <div class="feature-grid">
+            <article class="feature-card">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M13 2 4.5 13h6L11 22l8.5-12h-6L13 2Z" />
+                </svg>
+              </div>
+              <h3>Blazing fast</h3>
+              <p>Native Rust binaries and direct downloads keep your workflow moving.</p>
+            </article>
+            <article class="feature-card">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 3 4 6.5v5.1c0 4.8 3.4 8.1 8 9.4 4.6-1.3 8-4.6 8-9.4V6.5L12 3Z" />
+                  <path d="m8.5 12 2.2 2.2 4.8-5" />
+                </svg>
+              </div>
+              <h3>Safe by default</h3>
+              <p>Every archive is verified with an exact SHA-256 checksum before use.</p>
+            </article>
+            <article class="feature-card">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="12" r="8" />
+                  <path d="M12 4v16M4 12h16" />
+                  <path d="M7 7c3 2.8 7 2.8 10 0M7 17c3-2.8 7-2.8 10 0" />
+                </svg>
+              </div>
+              <h3>Built for GitHub</h3>
+              <p>Create taps and install tools straight from the releases you already use.</p>
+            </article>
+          </div>
+          <a class="section-link" href="features.html">
+            Explore all features <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="install-section" id="install">
+        <div class="container install-grid">
+          <div class="install-copy">
+            <p class="section-kicker">One command</p>
+            <h2>From curl to command<br />in seconds.</h2>
+            <p>
+              The installer detects your platform, verifies the archive, and
+              prepares Rustket in <code>~/.rustket/bin</code>.
+            </p>
+            <a
+              class="text-button dark"
+              href="install.html"
+            >
+              See all installation options <span aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          <div class="install-card">
+            <div class="install-tabs" role="tablist" aria-label="Installation options">
+              <button class="install-tab active" role="tab" aria-selected="true" data-target="curl">
+                Quick install
+              </button>
+              <button class="install-tab" role="tab" aria-selected="false" data-target="cargo">
+                From source
+              </button>
+            </div>
+            <div class="code-block active" id="curl" role="tabpanel">
+              <code><span>/bin/bash -c</span> "$(curl -fsSL https://raw.githubusercontent.com/Rustket/rustket/main/install.sh)" && export PATH="$HOME/.rustket/bin:$PATH"</code>
+              <button class="copy-button" type="button" data-copy="/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Rustket/rustket/main/install.sh)&quot; &amp;&amp; export PATH=&quot;$HOME/.rustket/bin:$PATH&quot;" aria-label="Copy install command">
+                <svg viewBox="0 0 20 20" aria-hidden="true">
+                  <rect x="6" y="6" width="9" height="9" rx="1" />
+                  <path d="M13 6V4H4v9h2" />
+                </svg>
+              </button>
+            </div>
+            <div class="code-block" id="cargo" role="tabpanel" hidden>
+              <code><span>cargo install</span> --git https://github.com/Rustket/rustket.git</code>
+              <button class="copy-button" type="button" data-copy="cargo install --git https://github.com/Rustket/rustket.git" aria-label="Copy source install command">
+                <svg viewBox="0 0 20 20" aria-hidden="true">
+                  <rect x="6" y="6" width="9" height="9" rx="1" />
+                  <path d="M13 6V4H4v9h2" />
+                </svg>
+              </button>
+            </div>
+            <p class="copy-status" aria-live="polite"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="commands" id="commands">
+        <div class="container commands-grid">
+          <div>
+            <p class="section-kicker">Simple by design</p>
+            <h2>A command for every<br />essential task.</h2>
+          </div>
+          <div class="command-list">
+            <div><code>rustket install &lt;bit&gt;</code><span>Install a package</span></div>
+            <div><code>rustket uninstall &lt;bit&gt;</code><span>Remove a package</span></div>
+            <div><code>rustket search &lt;query&gt;</code><span>Search configured taps</span></div>
+            <div><code>rustket upgrade</code><span>Update all installed bits</span></div>
+          </div>
+          <a class="section-link command-section-link" href="commands.html">
+                Browse the full command reference <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <a class="brand footer-brand" href="index.html">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40">
+              <path d="M20 3.5 34 11.5v17L20 36.5 6 28.5v-17L20 3.5Z" />
+              <path d="m20 12 7.5 4.3v8.6L20 29.2l-7.5-4.3v-8.6L20 12Z" />
+              <circle cx="20" cy="20" r="3" />
+            </svg>
+          </span>
+          <span>rustket</span>
+        </a>
+        <p>Package management, distilled.</p>
+        <a href="features.html">Features</a>
+        <a href="install.html">Install</a>
+        <a href="https://github.com/Rustket/rustket" target="_blank" rel="noreferrer">GitHub ↗</a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
